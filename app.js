@@ -25,3 +25,43 @@ document.addEventListener("click", (event) => {
     cartDropdown.classList.add("hidden");
   }
 });
+
+// Change Main Product Image
+function changeMainImage(imageSrc, thumbId) {
+  const mainProductImg = document.getElementById("main-product-img");
+  mainProductImg.src = imageSrc;
+
+  // Update Thumbnail Borders
+  for (let i = 1; i <= 4; i++) {
+    const thumb = document.getElementById(`thumb-${i}`);
+    if (i === thumbId) {
+      thumb.classList.add("border-2", "border-orange-500", "opacity-50");
+    } else {
+      thumb.classList.remove("border-2", "border-orange-500", "opacity-50");
+    }
+  }
+}
+
+let quantity = 1;
+const quantityDisplay = document.getElementById("quantity");
+const decreaseQtyButton = document.getElementById("decrease-qty");
+const increaseQtyButton = document.getElementById("increase-qty");
+
+decreaseQtyButton.addEventListener("click", () => {
+  if (quantity > 1) {
+    quantity--;
+    quantityDisplay.textContent = quantity;
+  }
+});
+
+increaseQtyButton.addEventListener("click", () => {
+  quantity++;
+  quantityDisplay.textContent = quantity;
+});
+
+const addToCartButton = document.getElementById("add-to-cart");
+const cartQty = document.getElementById("cart-qty");
+
+addToCartButton.addEventListener("click", () => {
+  cartQty.textContent = quantity;
+});

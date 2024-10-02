@@ -12,124 +12,239 @@
   <body class="font-sans antialiased">
     <div id="app">
       <header
-      class="h-[113px] flex items-center justify-between border-b border-gray-300 px-6 p-4"
-    >
-      <!-- Mobile Menu Button -->
-      <button id="mobile-menu-button" class="lg:hidden p-2">
-        <img src="./Images/sideBar.svg" alt="Menu" class="h-4 w-4" />
-      </button>
-      <div class="flex items-center gap-4 p-4">
-        <img src="./Images/logo.svg" alt="Logo" class="mb-1" />
-        <nav class="hidden lg:flex ml-6">
-          <ul class="flex space-x-8 text-gray-500">
-            <li class="relative group hover:text-black">
-              <span class="text-md cursor-pointer">Collections</span>
-              <div
-                class="absolute left-0 mt-7 right-0 h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
+        class="h-[113px] flex items-center justify-between border-b border-gray-300 px-6 p-4"
+      >
+        <!-- Mobile Menu Button -->
+        <button id="mobile-menu-button" class="lg:hidden p-2">
+          <img src="./Images/sideBar.svg" alt="Menu" class="h-4 w-4" />
+        </button>
+        <div class="flex items-center gap-4 p-4">
+          <img src="./Images/logo.svg" alt="Logo" class="mb-1" />
+          <nav class="hidden lg:flex ml-6">
+            <ul class="flex space-x-8 text-gray-500">
+              <li class="relative group hover:text-black">
+                <span class="text-md cursor-pointer">Collections</span>
+                <div
+                  class="absolute left-0 mt-7 right-0 h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+              </li>
+              <li class="relative group hover:text-black">
+                <span class="text-md cursor-pointer">Men</span>
+                <div
+                  class="absolute left-0 mt-7 right-0 h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+              </li>
+              <li class="relative group hover:text-black">
+                <span class="text-md cursor-pointer">Women</span>
+                <div
+                  class="absolute left-0 mt-7 right-0 h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+              </li>
+              <li class="relative group hover:text-black">
+                <span class="text-md cursor-pointer">About</span>
+                <div
+                  class="absolute left-0 mt-7 right-0 h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+              </li>
+              <li class="relative group hover:text-black">
+                <span class="text-md cursor-pointer">Contact</span>
+                <div
+                  class="absolute left-0 mt-7 right-0 h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                ></div>
+              </li>
+            </ul>
+          </nav>
+        </div>
+
+        <!-- Right Side: Cart and Profile -->
+        <div class="flex items-center space-x-8 pr-16">
+          <div class="relative pr-8">
+            <button id="cart-button" class="relative">
+              <img
+                src="./Images/cartIcon.svg"
+                alt="Cart"
+                class="h-[40px] md:h-[65px]"
+              />
+              <span
+                id="cart-qty"
+                class="absolute top-[-10px] right-[-10px] bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
+                >0</span
+              >
+            </button>
+            <div
+              id="cart-dropdown"
+              class="hidden absolute bg-white rounded-lg shadow-lg p-4 w-52"
+            >
+              <ul id="cart-items"></ul>
+              <p
+                id="empty-cart-message"
+                class="text-center text-gray-500 font-bold"
+              >
+                Your cart is empty
+              </p>
+              <a
+                href="#"
+                id="checkout-button"
+                class="hidden block bg-orange-500 text-white text-center py-3 rounded-lg mt-4"
+                >Checkout</a
+              >
+            </div>
+          </div>
+          <div class="relative">
+            <div
+              class="border-4 border-white hover:border-orange-500 transition-all rounded-full w-14 h-14 overflow-hidden"
+            >
+              <img
+                src="./Images/avatarImage.png"
+                alt="Profile"
+                class="w-full h-full"
+              />
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="fixed left-0 top-0 w-64 h-full bg-white shadow-lg transform -translate-x-full lg:hidden transition-transform duration-300"
+      >
+        <button id="close-menu" class="absolute top-4 right-4 p-2">
+          <img src="./Images/cross.svg" alt="X" class="h-4 w-4" />
+        </button>
+        <nav class="mt-16">
+          <ul class="flex flex-col space-y-4 text-gray-500 p-4">
+            <li class="hover:text-black">
+              <span class="text-lg cursor-pointer">Collections</span>
             </li>
-            <li class="relative group hover:text-black">
-              <span class="text-md cursor-pointer">Men</span>
-              <div
-                class="absolute left-0 mt-7 right-0 h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
+            <li class="hover:text-black">
+              <span class="text-lg cursor-pointer">Men</span>
             </li>
-            <li class="relative group hover:text-black">
-              <span class="text-md cursor-pointer">Women</span>
-              <div
-                class="absolute left-0 mt-7 right-0 h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
+            <li class="hover:text-black">
+              <span class="text-lg cursor-pointer">Women</span>
             </li>
-            <li class="relative group hover:text-black">
-              <span class="text-md cursor-pointer">About</span>
-              <div
-                class="absolute left-0 mt-7 right-0 h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
+            <li class="hover:text-black">
+              <span class="text-lg cursor-pointer">About</span>
             </li>
-            <li class="relative group hover:text-black">
-              <span class="text-md cursor-pointer">Contact</span>
-              <div
-                class="absolute left-0 mt-7 right-0 h-1 bg-blue-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-              ></div>
+            <li class="hover:text-black">
+              <span class="text-lg cursor-pointer">Contact</span>
             </li>
           </ul>
         </nav>
       </div>
-    
-      <!-- Right Side: Cart and Profile -->
-      <div class="flex items-center space-x-8 pr-16">
-        <div class="relative pr-8">
-          <button id="cart-button" class="relative">
-            <img
-              src="./Images/cartIcon.svg"
-              alt="Cart"
-              class="h-[40px] md:h-[65px]"
-            />
-            <span
-              id="cart-qty"
-              class="absolute top-[-10px] right-[-10px] bg-orange-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center"
-              >0</span
+
+      <main class="grid grid-cols-1 md:grid-cols-2 px-12 mt-6 gap-16">
+        <!-- Product Images Section -->
+        <section>
+          <div class="space-y-6">
+            <!-- Main Product Image -->
+            <div class="flex justify-center">
+              <img
+                id="main-product-img"
+                src="./Images/imgProd1.jpg"
+                alt="Main Product"
+                class="w-96 rounded-xl cursor-pointer"
+              />
+            </div>
+
+            <!-- Thumbnails -->
+            <div class="grid grid-cols-4 gap-7">
+              <img
+                id="thumb-1"
+                src="./Images/imgProd1.jpg"
+                alt="Thumbnail 1"
+                class="w-full rounded-lg cursor-pointer"
+                onclick="changeMainImage('./Images/imgProd1.jpg', 1)"
+              />
+              <img
+                id="thumb-2"
+                src="./Images/imgProd2.jpg"
+                alt="Thumbnail 2"
+                class="w-full rounded-lg cursor-pointer"
+                onclick="changeMainImage('./Images/imgProd2.jpg', 2)"
+              />
+              <img
+                id="thumb-3"
+                src="./Images/imgProd3.jpg"
+                alt="Thumbnail 3"
+                class="w-full rounded-lg cursor-pointer"
+                onclick="changeMainImage('./Images/imgProd3.jpg', 3)"
+              />
+              <img
+                id="thumb-4"
+                src="./Images/imgProd4.jpg"
+                alt="Thumbnail 4"
+                class="w-full rounded-lg cursor-pointer"
+                onclick="changeMainImage('./Images/imgProd4.jpg', 4)"
+              />
+            </div>
+          </div>
+        </section>
+
+        <!-- Product Details Section -->
+        <section>
+          <div class="pt-8">
+            <span class="font-bold uppercase tracking-widest mb-4 block text-xs"
+              >Sneaker Company</span
             >
-          </button>
-          <div
-            id="cart-dropdown"
-            class="hidden absolute bg-white rounded-lg shadow-lg p-4 w-52"
-          >
-            <ul id="cart-items"></ul>
+            <h1 class="text-5xl mb-8 leading-tight pt-1 font-extrabold">
+              Fall Limited Edition Sneakers
+            </h1>
             <p
-              id="empty-cart-message"
-              class="text-center text-gray-500 font-bold"
+              class="text-gray-600 text-base mb-6 leading-relaxed tracking-wide w-11/12"
             >
-              Your cart is empty
+              These low-profile sneakers are your perfect casual wear companion.
+              Featuring a durable rubber outer sole, they'll withstand
+              everything the weather can offer.
             </p>
-            <a
-              href="#"
-              id="checkout-button"
-              class="hidden block bg-orange-500 text-white text-center py-3 rounded-lg mt-4"
-              >Checkout</a
+            <div class="flex items-center">
+              <span class="text-3xl font-bold text-gray-900 mr-4">$125.00</span>
+              <span
+                class="text-base text-orange-500 font-bold bg-orange-100 py-1 px-3 rounded-md"
+                >50% OFF</span
+              >
+            </div>
+            <span class="text-gray-400 line-through text-base font-bold mt-2"
+              >$250.00</span
             >
+            <div class="flex gap-4">
+              <!-- Quantity Controls -->
+              <div
+                class="flex justify-between mt-6 bg-gray-100 px-4 h-14 rounded-lg w-40"
+              >
+                <button
+                  id="decrease-qty"
+                  class="text-orange-500 font-bold text-2xl hover:opacity-60 transition"
+                >
+                  -
+                </button>
+                <span id="quantity" class="mx-4 font-bold text-lg p-3">1</span>
+                <button
+                  id="increase-qty"
+                  class="text-orange-500 font-bold text-2xl hover:opacity-60 transition"
+                >
+                  +
+                </button>
+              </div>
+
+              <!-- Add to Cart Button -->
+              <div class="flex mt-6 shadow-lg border-2 rounded-xl">
+                <button
+                  id="add-to-cart"
+                  class="bg-orange-400 text-white font-bold py-3 px-8 rounded-lg shadow-lg hover:opacity-60 transition flex items-center"
+                >
+                  <img
+                    src="./Images/cartIcon.svg"
+                    alt="Cart Icon"
+                    class="mr-3 h-5 filter brightness-200"
+                  />
+                  <span class="text-black"> Add to Cart </span>
+                </button>
+              </div>
+            </div>
           </div>
-        </div>
-        <div class="relative">
-          <div
-            class="border-4 border-white hover:border-orange-500 transition-all rounded-full w-14 h-14 overflow-hidden"
-          >
-            <img
-              src="./Images/avatarImage.png"
-              alt="Profile"
-              class="w-full h-full"
-            />
-          </div>
-        </div>
-      </div>
-    </header>
-    
-    <div
-      id="mobile-menu"
-      class="fixed left-0 top-0 w-64 h-full bg-white shadow-lg transform -translate-x-full lg:hidden transition-transform duration-300"
-    >
-      <button id="close-menu" class="absolute top-4 right-4 p-2">
-        <img src="./Images/cross.svg" alt="X" class="h-4 w-4" />
-      </button>
-      <nav class="mt-16">
-        <ul class="flex flex-col space-y-4 text-gray-500 p-4">
-          <li class="hover:text-black">
-            <span class="text-lg cursor-pointer">Collections</span>
-          </li>
-          <li class="hover:text-black">
-            <span class="text-lg cursor-pointer">Men</span>
-          </li>
-          <li class="hover:text-black">
-            <span class="text-lg cursor-pointer">Women</span>
-          </li>
-          <li class="hover:text-black">
-            <span class="text-lg cursor-pointer">About</span>
-          </li>
-          <li class="hover:text-black">
-            <span class="text-lg cursor-pointer">Contact</span>
-          </li>
-        </ul>
-      </nav>
+        </section>
+      </main>
     </div>
 
     <script src="app.js"></script>
