@@ -71,6 +71,7 @@ function updateCartDisplay() {
 
   if (cart.length === 0) {
     emptyCartMessage.classList.remove("hidden");
+    checkoutButton.classList.add("hidden");
   } else {
     emptyCartMessage.classList.add("hidden");
     checkoutButton.classList.remove("hidden");
@@ -134,22 +135,32 @@ addToCartButton.addEventListener("click", () => {
   updateCartDisplay();
 });
 
+document.addEventListener("DOMContentLoaded", () => {
+  updateCartDisplay();
+});
+
+let cartDropdownTimeout;
+
 cartButton.addEventListener("mouseenter", () => {
+  clearTimeout(cartDropdownTimeout);
   cartDropdown.classList.remove("hidden");
 });
 
 cartDropdown.addEventListener("mouseenter", () => {
+  clearTimeout(cartDropdownTimeout);
   cartDropdown.classList.remove("hidden");
 });
 
 cartButton.addEventListener("mouseleave", () => {
-  cartDropdown.classList.add("hidden");
+  cartDropdownTimeout = setTimeout(() => {
+    if (!cartDropdown.matches(":hover")) {
+      cartDropdown.classList.add("hidden");
+    }
+  }, 200);
 });
 
 cartDropdown.addEventListener("mouseleave", () => {
-  cartDropdown.classList.add("hidden");
-});
-
-document.addEventListener("DOMContentLoaded", () => {
-  updateCartDisplay();
+  cartDropdownTimeout = setTimeout(() => {
+    cartDropdown.classList.add("hidden");
+  }, 200);
 });
