@@ -65,6 +65,7 @@ let cartQuantity = 0;
 function updateCartDisplay() {
   const cartDisplayItems = document.getElementById("cart-items");
   const emptyCartMessage = document.getElementById("empty-cart-message");
+  const checkoutButton = document.getElementById("checkout-button");
 
   cartDisplayItems.innerHTML = "";
 
@@ -72,6 +73,7 @@ function updateCartDisplay() {
     emptyCartMessage.classList.remove("hidden");
   } else {
     emptyCartMessage.classList.add("hidden");
+    checkoutButton.classList.remove("hidden");
 
     cart.forEach((item, index) => {
       const itemBlock = document.createElement("div");

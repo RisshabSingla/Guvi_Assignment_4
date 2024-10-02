@@ -73,7 +73,7 @@
             </button>
             <div
               id="cart-dropdown"
-              class="absolute hidden bg-white rounded-lg shadow-lg p-4 w-52"
+              class="absolute hidden bg-white rounded-lg shadow-lg -left-48 top-8 p-4 w-96"
             >
               <ul id="cart-items"></ul>
               <p
@@ -82,12 +82,14 @@
               >
                 Your cart is empty
               </p>
-              <a
-                href="#"
-                id="checkout-button"
-                class="hidden block bg-orange-500 text-white text-center py-3 rounded-lg mt-4"
-                >Checkout</a
-              >
+              <div class="flex justify-center mt-2">
+                <a
+                  href="#"
+                  id="checkout-button"
+                  class="hidden bg-orange-500 text-black text-center p-2 rounded-lg border-2"
+                  >Checkout</a
+                >
+              </div>
             </div>
           </div>
           <div class="relative">
